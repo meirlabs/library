@@ -1,0 +1,31 @@
+{
+  "name": "@meir-labs/skill-testing",
+  "version": "0.1.0",
+  "description": "The meirlabs automated-testing standard: Vitest + Testing Library for unit/integration, Playwright for E2E, a CI workflow, and plain-language reporting for a non-coder owner. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "testing",
+    "vitest",
+    "playwright",
+    "ci",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/testing",
+  "type": "module",
+  "bin": {
+    "skill-testing": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@meir-labs/skill-security-audit",
+  "version": "0.1.1",
+  "description": "The meirlabs security-audit skill — find real, exploitable issues and turn each into a ranked finding with an implementation plan: a threat model, a multi-lens static sweep, live-config checks, then a 3-skeptic adversarial verification pass so the report resists false positives. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "security",
+    "audit",
+    "pentest",
+    "appsec",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/security-audit",
+  "type": "module",
+  "bin": {
+    "skill-security-audit": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

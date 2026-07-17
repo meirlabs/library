@@ -1,0 +1,28 @@
+{
+  "name": "@meir-labs/agent-project-starter",
+  "version": "0.3.1",
+  "description": "The meirlabs new-project pipeline as Claude Code subagents: planner (gated PLAN.md), scaffolder, design-applier, analytics-wirer, test-wirer, and docs-writer. npx installs all six agent definitions into .claude/agents.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "agents",
+    "subagent",
+    "scaffolding",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/agents/project-starter",
+  "type": "module",
+  "bin": {
+    "agent-project-starter": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

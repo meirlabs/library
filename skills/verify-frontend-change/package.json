@@ -1,0 +1,31 @@
+{
+  "name": "@meir-labs/skill-verify-frontend-change",
+  "version": "0.1.2",
+  "description": "Verify any UI change end-to-end before declaring it done — drive it in a real browser, check console and mobile, screenshot before/after. A Claude Code skill; npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "frontend",
+    "verify",
+    "ui",
+    "browser",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/verify-frontend-change",
+  "type": "module",
+  "bin": {
+    "skill-verify-frontend-change": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

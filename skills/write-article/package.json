@@ -1,0 +1,31 @@
+{
+  "name": "@meir-labs/skill-write-article",
+  "version": "0.1.1",
+  "description": "The house method for writing SEO/AEO articles as a Claude Code skill — answer-engine structure, tiered numbers with concrete examples, a stats convention, and the editorial rules. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "writing",
+    "seo",
+    "aeo",
+    "content",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/write-article",
+  "type": "module",
+  "bin": {
+    "skill-write-article": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

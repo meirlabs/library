@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-organize-idea",
+  "version": "0.1.0",
+  "description": "A Claude Code skill that files a SaaS idea into a standard project structure — plan-first, confirm-before-move. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "ideas",
+    "organization",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/organize-idea",
+  "type": "module",
+  "bin": {
+    "skill-organize-idea": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

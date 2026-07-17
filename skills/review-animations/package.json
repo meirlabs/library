@@ -1,0 +1,30 @@
+{
+  "name": "@meir-labs/skill-review-animations",
+  "version": "0.1.0",
+  "description": "A motion-review Claude Code skill with ten non-negotiable standards derived from Emil Kowalski's design engineering philosophy — default to flagging, approval is earned. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "animations",
+    "motion",
+    "code-review",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/review-animations",
+  "type": "module",
+  "bin": {
+    "skill-review-animations": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

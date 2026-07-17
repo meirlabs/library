@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-gtm",
+  "version": "0.1.1",
+  "description": "How a one-person studio takes an idea to market — positioning, channels, and operating cadence, as a Claude Code skill. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "gtm",
+    "marketing",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/gtm",
+  "type": "module",
+  "bin": {
+    "skill-gtm": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

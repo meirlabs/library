@@ -1,0 +1,33 @@
+{
+  "name": "@meir-labs/skill-bookmark-triage",
+  "version": "0.1.0",
+  "description": "The meirlabs bookmark-triage skill — turn saved X/Twitter bookmarks into Linear tickets automatically: a daily agent loop that reads new bookmarks via the shiori.sh CLI, classifies each against your idea taxonomy, auto-files the actionable ones, and tags processed links so nothing is double-processed. Includes the hardened headless-run design and the launchd schedule. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "bookmarks",
+    "x-bookmarks",
+    "shiori",
+    "linear",
+    "triage",
+    "automation",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/bookmark-triage",
+  "type": "module",
+  "bin": {
+    "skill-bookmark-triage": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

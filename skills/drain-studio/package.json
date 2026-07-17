@@ -1,0 +1,33 @@
+{
+  "name": "@meir-labs/skill-drain-studio",
+  "version": "0.1.0",
+  "description": "The meirlabs Drain Studio skill — the whole bookmark-to-PR loop: a daily agent pipeline that triages X bookmarks into Linear tickets, then drains top-priority tickets into reviewable draft PRs via a PM-led agent team with a hard human-review gate (it never merges anything itself). The skill is the map; the runnable machinery — conductor, helper CLIs, launchd schedules, Supabase migration, agent role briefs, test harness — lives at github.com/meirlabs/drain-studio. npx installs the skill into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "agents",
+    "agent-loop",
+    "bookmarks",
+    "linear",
+    "pull-requests",
+    "automation",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/drain-studio",
+  "type": "module",
+  "bin": {
+    "skill-drain-studio": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

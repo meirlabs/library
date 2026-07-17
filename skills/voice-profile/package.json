@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-voice-profile",
+  "version": "0.1.1",
+  "description": "The meirlabs writing-voice skill — hard rules, tone, and never-use lists so drafts sound like one person instead of a model. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "writing",
+    "voice",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/voice-profile",
+  "type": "module",
+  "bin": {
+    "skill-voice-profile": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

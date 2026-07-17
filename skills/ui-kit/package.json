@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-ui-kit",
+  "version": "0.1.2",
+  "description": "The usage skill for @meir-labs/ui-kit — when tables, pagination, status pills, tags, or metrics come up, reach for the kit instead of rebuilding. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "ui-kit",
+    "components",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/ui-kit",
+  "type": "module",
+  "bin": {
+    "skill-ui-kit": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

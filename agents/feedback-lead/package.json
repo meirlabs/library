@@ -1,0 +1,17 @@
+{
+  "name": "@meir-labs/agent-feedback-lead",
+  "version": "0.1.0",
+  "description": "A Claude Code subagent that turns raw user feedback into a deduped, prioritized backlog — clusters the same ask phrased different ways into one issue with counted verbatim evidence, and files tickets to Linear (via MCP) or a backlog file. npx installs the agent definition into .claude/agents.",
+  "keywords": ["claude-code", "claude", "agents", "subagent", "feedback", "triage", "linear", "meirlabs"],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/agents/feedback-lead",
+  "type": "module",
+  "bin": {
+    "agent-feedback-lead": "bin/install.mjs"
+  },
+  "files": ["bin", "files", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  }
+}

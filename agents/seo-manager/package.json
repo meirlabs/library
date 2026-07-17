@@ -1,0 +1,17 @@
+{
+  "name": "@meir-labs/agent-seo-manager",
+  "version": "0.1.0",
+  "description": "A Claude Code subagent that audits and tends a site's SEO — checks titles, meta, headings, schema, and internal links against target queries, fixes what it can in code, and files the rest as a prioritized worklist. npx installs the agent definition into .claude/agents.",
+  "keywords": ["claude-code", "claude", "agents", "subagent", "seo", "meirlabs"],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/agents/seo-manager",
+  "type": "module",
+  "bin": {
+    "agent-seo-manager": "bin/install.mjs"
+  },
+  "files": ["bin", "files", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  }
+}

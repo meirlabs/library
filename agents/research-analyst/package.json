@@ -1,0 +1,17 @@
+{
+  "name": "@meir-labs/agent-research-analyst",
+  "version": "0.1.0",
+  "description": "A Claude Code subagent that maps a market and watches the competition — builds a sourced market map (segments, competitors, positioning, pricing), then diffs against it on repeat runs and briefs only what changed. npx installs the agent definition into .claude/agents.",
+  "keywords": ["claude-code", "claude", "agents", "subagent", "research", "competitive-analysis", "meirlabs"],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/agents/research-analyst",
+  "type": "module",
+  "bin": {
+    "agent-research-analyst": "bin/install.mjs"
+  },
+  "files": ["bin", "files", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  }
+}

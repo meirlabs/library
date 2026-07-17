@@ -1,0 +1,28 @@
+{
+  "name": "@meir-labs/skill-principles",
+  "version": "0.1.0",
+  "description": "The values and 5-Step Process that guide the work at meirlabs, as a Claude Code skill. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "principles",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/principles",
+  "type": "module",
+  "bin": {
+    "skill-principles": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

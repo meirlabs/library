@@ -1,0 +1,32 @@
+{
+  "name": "@meir-labs/skill-whatsapp-group-agent",
+  "version": "0.1.1",
+  "description": "Connect an AI agent to an existing WhatsApp group — silent monitoring, auto-ticketing to Linear, document intake, and answers on mention. A Claude Code / OpenClaw skill. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "whatsapp",
+    "openclaw",
+    "baileys",
+    "linear",
+    "agent",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/whatsapp-group-agent",
+  "type": "module",
+  "bin": {
+    "skill-whatsapp-group-agent": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

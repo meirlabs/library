@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-new-project",
+  "version": "0.1.4",
+  "description": "The meirlabs new-project orchestration skill — discovery, an approval-gated PLAN.md, then the full scaffold/design/analytics/docs pipeline. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "scaffolding",
+    "pipeline",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/new-project",
+  "type": "module",
+  "bin": {
+    "skill-new-project": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

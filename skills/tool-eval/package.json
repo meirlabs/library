@@ -1,0 +1,30 @@
+{
+  "name": "@meir-labs/skill-tool-eval",
+  "version": "0.1.0",
+  "description": "The meirlabs tool-picking skill — a multi-agent evaluation harness: verified pricing research, adversarial fact-checking, a judge panel on the buyer's real priorities, and a decision memo with switch triggers. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "evaluation",
+    "vendor-selection",
+    "tools",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/tool-eval",
+  "type": "module",
+  "bin": {
+    "skill-tool-eval": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

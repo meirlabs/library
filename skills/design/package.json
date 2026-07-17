@@ -1,0 +1,29 @@
+{
+  "name": "@meir-labs/skill-design",
+  "version": "0.1.10",
+  "description": "The meirlabs design rules for a product's visual layer — brand tokens, fixed structure, and the rules everything defers to. A Claude Code skill; npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "design-system",
+    "design",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/design",
+  "type": "module",
+  "bin": {
+    "skill-design": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
