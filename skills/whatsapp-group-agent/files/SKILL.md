@@ -61,7 +61,8 @@ your own values.
    (`openclaw mcp set linear '{"url":"https://mcp.linear.app/mcp","transport":"streamable-http","headers":{"Authorization":"Bearer <LINEAR_API_KEY>"}}'`).
    Reference CLIs from the build: `linear.py` (create/search/comment/
    collection find-or-create/archive-done), `groupmem.py` (SQLite+FTS5 message
-   log), `library.py` (document intake + FTS index).
+   log), `library.py` (document intake + FTS index), `granola.py` (meeting
+   cache + project-scoped Q&A — see "Granola meeting access" below).
 6. **Message-log hook (the safety net).** Register via
    `hooks.internal.handlers: [{ event: "message", module: "hooks/group-logger/handler.js" }]`.
    The module path resolves RELATIVE TO EACH AGENT WORKSPACE (put the file in
@@ -77,6 +78,58 @@ your own values.
    the message log against tickets/library and file anything missed.
 8. **Health cron:** restart the container ONLY when the gateway is
    unreachable; "not linked" is a pairing state a restart cannot fix.
+9. **Granola sync cron:** if meeting Q&A is wired (see below), host cron runs
+   `granola.py sync` every 30 minutes — separate from the daily sweep and
+   health cron. Agents never call `sync` inline; that eats request budget and
+   stalls a reply.
+
+## Granola meeting access (added 2026-07-20)
+
+Lets a group agent answer "what did we discuss in the meeting with X" from a
+local cache — the public API has no search, so agents read a synced SQLite
+cache, never the live API directly (except a one-off `get` on a known id).
+
+- **CLI:** `<data-home>/granola.py`, stdlib-only (urllib + sqlite3 — a
+  minimal container may not have `requests`). Subcommands:
+  `sync [--full] [--days N]`, `list --project P [--limit N] [--days N]`,
+  `search --query Q [--project P] [--limit N]`, `get --id ID [--transcript]`,
+  `unclassified [--limit N]`, `reclassify --id ID --project P`, `stats`.
+- **The public API surface is exactly three endpoints and nothing else:**
+  base `https://public-api.granola.ai`, `Authorization: Bearer
+  $GRANOLA_API_KEY`. `GET /v1/notes` (list), `GET /v1/notes/{id}[?include=
+  transcript]` (detail), `GET /v1/folders`. No server-side search, no
+  attendee filter, no free-text query — unknown query params are silently
+  ignored (200 OK, unfiltered) while bad values for KNOWN params 400. So
+  relevance filtering must happen client-side; that's why the cache exists.
+- **List items are stubs:** only id/title/owner/created_at/updated_at, no
+  summary/attendees/folder. You cannot classify off the list endpoint alone —
+  every note needs the per-note detail call.
+- **Folders are read-only via the API** — there is no write endpoint for
+  folders or folder membership, so you cannot auto-categorize inside Granola
+  itself. The project mapping has to live in your own store:
+  `granola-rules.json` next to the script, per project
+  `{domains, names, keywords}`, matched in priority order domains → names →
+  keywords.
+- **Keyword precision carries the classification.** Most notes are "solo
+  notes" with no attendees/calendar event populated, so attendee-domain
+  signals often don't fire. Loose keywords ("legal", "client", "consulting")
+  cause false positives from notetaker boilerplate — keep keywords
+  high-precision and let ambiguous meetings fall to a low-confidence `other`
+  bucket surfaced by `unclassified` for the daily sweep to review, rather
+  than guessing.
+- **No webhooks; polling is the only trigger.** `updated_after` drives
+  incremental sync, `page_size` maxes at 30 with cursor pagination, rate
+  limit is 25 req/5s burst / 5 req/s sustained. Never fetch transcripts in
+  bulk — only for a note a query has already judged relevant.
+- **Per-group scoping is mandatory, same discipline as `groupmem.py
+  --group <jid>` and the per-team Linear key prefix:** each group agent is
+  hard-scoped to its own project (`--project <own-project>` on every `list`/
+  `search` call in that AGENTS.md) so it can never read another project's
+  meetings.
+- **Secret handling:** `GRANOLA_API_KEY` goes in `.env`, same pattern as the
+  Linear keys. An `env_file` change needs `compose up -d --force-recreate`,
+  not just a restart — a plain restart keeps the container running with the
+  stale environment.
 
 ## Multiple groups / projects (e.g. a second group → a different Linear team)
 
@@ -124,21 +177,123 @@ serves many groups without context bleed. To add a group:
 
 ## Agent prompt rules (AGENTS.md in the agent workspace)
 
-- Classify every message: task / decision / question / fyi / intake.
-- **Silence is explicit:** "any text you produce gets posted to the group;
-  between tool calls output nothing; your only text output is the final
-  NO_REPLY". Without this the agent narrates its work into the chat.
-- **Reactions as receipts, one per message:** ✅ ticket created, 🔁 already
-  tracked, 📁 filed, 📌 decision, ❓ question, 👍 fyi. The react call must
-  OMIT message_id: an explicit id skips the plugin's participant inference and
-  WhatsApp silently drops group reactions missing the participant key.
-- Tickets: dedup-search before create; rolling "[collection]" tickets per
-  document topic (find-or-create by exact title, then comment per item)
-  instead of a ticket per document. Localize the collection title language to
-  the group's own language if it is not English.
-- Media arrives as `<media:image>`/`<media:document>` placeholders with the
-  file in `<data-home>/.openclaw/media/inbound/`; images are auto-described by
-  the configured image model; PDFs need a pypdf extract helper.
+**Policy v2 (2026-07-20):** replaced the flat "classify then react to every
+message" rule below. Reaction-per-message was pure noise (most
+`<media:audio>` fell through to a stray 👍) and the old taxonomy couldn't
+distinguish "addressed to the bot" from "humans talking to each other" from
+"actually ticket-worthy". Current rules:
+
+- **Prime directive — default to silence.** When in doubt, output `NO_REPLY`
+  and nothing else. A missed ticket is caught by the daily sweep; an unwanted
+  reaction or reply cannot be taken back. Never narrate ("noted", "creating a
+  ticket") before/between/after tool calls — in monitoring mode the only text
+  output is the final `NO_REPLY`.
+- **Am I addressed? — run BEFORE any classification.** True only if one of:
+  **A.** @mention of the bot itself — the prompt MUST spell out the bot's own
+  identifiers verbatim, because WhatsApp delivers a mention as raw literal
+  text with NO mention metadata (the OpenClaw plugin never forwards
+  `mentionedJids`): a mention arrives as `@<bot-LID>` (the bot's LID, a
+  WhatsApp-internal id — NOT the phone number, NOT the display name) or
+  `@<bot-number>` (phone). Either token anywhere in the message = addressed;
+  `@` + any other number is a human mention and does not count. A rule that
+  just says "@mention of your own number/handle" is unsatisfiable — the model
+  NO_REPLY'd a real direct mention until the literal tokens were spelled out
+  (incident + fix 2026-07-20). GENERAL LESSON: every group bot's prompt
+  states its own LID and phone number; discover the LID by having someone
+  tap-mention the bot and reading the raw body in the gateway file log or
+  message log.
+  **B.** the trigger word `bot` (or your language's equivalent, any casing)
+  used as a DIRECT ADDRESS anywhere in the message — first word ("bot,
+  what's open"), last word ("what's open, bot?"), or mid-sentence vocative
+  ("tell me, bot, what's open"). Widened from first-word-only 2026-07-20.
+  Third-person REFERENCE is explicitly not addressing: "the bot"/"the bot
+  didn't respond" stay ambient; genuinely unsure whether it's address or
+  reference → NOT addressed (silence-default wins).
+  **C.** WhatsApp quoted-reply to a message the bot sent.
+  **D.** conversational continuation (added 2026-07-20): the bot sent the
+  immediately previous group message AND the new message is a direct reaction
+  to it — a correction/objection ("I think that's incomplete"), a follow-up
+  question, or "help". One hop only; a new unrelated topic doesn't count.
+  None of A/B/C/D → NOT addressed → ambient classification below. A plain
+  imperative ("add hebrew support") is two humans assigning each other work,
+  never a bot request; audio/image/document with no A/B/C/D trigger is never
+  addressed.
+- **Ambient classification (not addressed), top-to-bottom, first match wins:**
+  audio/untranscribed media → **SILENT** (never guess unheard content) →
+  client/sensitive-case content (real client name/ID, case facts) →
+  **SILENT** (never filed, never ticketed) → intake (attachment or link worth
+  keeping) → file it, react **📁** → task/bug/feature/commitment →
+  dedup-search first, then react **✅** if a ticket was created, or **SILENT**
+  if an existing open ticket already matched → everything else (decisions,
+  questions, scheduling, FYI, banter, ideas with no owner) → **SILENT**, no
+  reaction of any kind.
+- **Reactions are receipts for completed actions only, and there are exactly
+  two:** ✅ created, 📁 filed. 👍/❓/📌 are retired, and so is the 🔁 duplicate
+  marker: finding an existing ticket is not work, so it earns silence like
+  everything else the bot did not act on. Write the dedup rule as "no ticket,
+  NO reaction, just NO_REPLY" — a weak model reads "duplicate found" as an
+  outcome worth announcing unless told otherwise. One reaction max: if intake
+  and task both fire on the same message, do both actions but show only ✅.
+  A text
+  reply is its own receipt — never stack a reaction on top of a reply. The
+  react call must OMIT message_id: an explicit id skips the plugin's
+  participant inference and WhatsApp silently drops group reactions missing
+  the participant key.
+- **When addressed, route by ask:** bare mention (a mention with no ask —
+  e.g. just `@<bot-LID>` — is still addressed: never NO_REPLY it; reply one
+  short line in the sender's language inviting the ask) / ticket ops (dedup,
+  then create/update,
+  confirm in one line with identifier+URL) / reminders (OpenClaw's own cron —
+  never build new — `announce → whatsapp:<target>`, group JID for "remind
+  us/the group" vs DM for "remind me"; reminders never touch Linear) /
+  knowledge or advice (search first via `groupmem.py`/`linear.py`/
+  `library.py`, answer short and in-language; for pure opinion give a short
+  honest take and state uncertainty plainly — never default to "I don't have
+  enough context") / meetings (Granola cache, always project-scoped — see
+  "Granola meeting access" above; summary first, transcript only when the
+  summary doesn't answer it) / capabilities ("what can you do?" — required
+  self-description, see below) / correction or banter (one short reply;
+  best-effort undo if it corrected a wrong action; no ticket, no reaction).
+- **Client PII in tickets:** when a task wraps a real client's data (name/ID,
+  medical/case detail), the ticket describes the technical problem only and
+  references the WhatsApp thread/date; never paste the client narrative into
+  Linear.
+- **Timezone (added 2026-07-20):** if the container clock's timezone differs
+  from the group's (e.g. a European VPS serving a group elsewhere), state the
+  offset in the prompt and have the bot convert any stated time to the
+  group's timezone and label it as such — otherwise reminders and "at 3pm"
+  answers land an hour off.
+- **Carried forward, unchanged:** dedup-search before create; rolling
+  "[collection]" tickets per document topic (find-or-create by exact title,
+  then comment per item) instead of a ticket per document, localized to the
+  group's own language; media arrives as `<media:image>`/`<media:document>`
+  placeholders with the file in `<data-home>/.openclaw/media/inbound/`, images
+  auto-described by the configured image model, PDFs need a pypdf extract
+  helper.
+
+## Capabilities self-description (added 2026-07-20)
+
+Required section in every group agent's AGENTS.md, answered when addressed
+and asked "what can you do?" — a silent bot can't be discovered by its users,
+and its emoji receipts are undecodable without an explanation on demand.
+Answer in the asker's language, adapted naturally, nothing invented:
+
+1. Silent monitoring — every task mentioned in the group becomes a ticket
+   automatically; documents/articles/screenshots are filed to the library and
+   collection tickets.
+2. On-request ("call me bot anywhere in the message, @mention me, or reply
+   to me" — deployed wording 2026-07-20; a direct follow-up right after the
+   bot speaks counts too):
+   open/search/close tickets, list what's open, set reminders, answer
+   questions from group history + the document library + Granola meetings,
+   give a short opinion.
+3. **Reaction glossary, verbatim, not paraphrased:** ✅ ticket created,
+   📁 filed — that is the whole set — plus an explicit line that silence is
+   deliberate: "seen, nothing to do," including when a ticket already exists.
+
+Without item 3 users can't decode the emoji receipts and end up asking "did
+that work?" in the chat, which defeats the point of the silent-monitoring
+design — this is now required for every group bot, not optional flavor.
 
 ## Fallback models break discipline
 
@@ -148,9 +303,9 @@ serves many groups without context bleed. To add a group:
   languages") as being addressed directly.
 - Fixes: set `agents.defaults.timeoutSeconds: 300`; order fallbacks mid-tier
   before cheap (sonnet-4-6 → sonnet-4-5 → haiku last); define "addressed"
-  explicitly in the prompt (@mention / bot-name / reply-to-bot only, an
-  imperative is a task); write every hard rule so the weakest model in the
-  chain still obeys it.
+  explicitly in the prompt (the A/B/C/D test above, literal identifier tokens
+  included; an imperative is a task); write every hard rule so the weakest
+  model in the chain still obeys it.
 
 ## Container/environment gotchas (managed OpenClaw image on a VPS)
 
@@ -162,6 +317,13 @@ serves many groups without context bleed. To add a group:
   `openclaw config validate` after every edit.
 - pip needs `--user --break-system-packages` (PEP 668), installs persist in
   the /data home.
+- Bot LID discovery: the bot's own LID (needed verbatim in the prompt — see
+  "Am I addressed?" rule A) appears in no config file. Have someone
+  tap-mention the bot in the group, then read the raw message body — it shows
+  as literal `@<15-digit LID>` text — in the container file log
+  (`/tmp/openclaw-<uid>/openclaw-*.log`) or the message log. The plugin
+  forwards no mention metadata, so the raw body is the only place the LID
+  surfaces.
 - AGENTS.md/skills snapshot per session: reset the group session
   (`rm -rf agents/<id>/sessions/*` + container restart) after prompt changes,
   ideally at a quiet moment (see the initialization race above).

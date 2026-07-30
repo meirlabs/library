@@ -1,0 +1,32 @@
+{
+  "name": "@meir-labs/skill-brand-mascot",
+  "version": "0.1.0",
+  "description": "Create a branded mascot and hold it visually consistent across a whole campaign — identity lives in an attached reference image, never in prose. Reference-conditioned renders, real text composited in HTML, every platform format rendered natively. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "mascot",
+    "brand",
+    "character-consistency",
+    "image-generation",
+    "campaign",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/brand-mascot",
+  "type": "module",
+  "bin": {
+    "skill-brand-mascot": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

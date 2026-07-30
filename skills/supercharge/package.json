@@ -1,0 +1,32 @@
+{
+  "name": "@meir-labs/skill-supercharge",
+  "version": "0.1.0",
+  "description": "Turn any task into a don't-stop-until-wowed quality loop: builder subagents fan out one per dimension, a separate harsh critic judges each blind against a named best-in-class benchmark, and the loop exits on the quality gate — never an iteration count. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "skills",
+    "skill",
+    "subagents",
+    "orchestration",
+    "quality",
+    "critic",
+    "benchmark",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/supercharge",
+  "type": "module",
+  "bin": {
+    "skill-supercharge": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
