@@ -1,6 +1,6 @@
 ---
 name: testing
-description: The meirlabs automated-testing standard. How every project sets up, writes, and runs tests, and how Claude reports results to a non-coder owner in plain language. Use when the user says "set up tests", "add tests", "write a test for this", "run the tests", "run the tests again", "why is CI red?", "is it safe to deploy?", "did I break anything?", or reports a bug (write a failing test first, then fix). Wiring a project is done by the test-wirer agent; the deploy skill hard-gates on green tests.
+description: The meirlabs automated-testing standard - how every project sets up, writes, and runs tests, and how Claude reports results in plain language. Use when the user says "set up tests", "add tests", "write a test for this", "run the tests", "run the tests again", "why is CI red?", "is it safe to deploy?", "did I break anything?", or reports a bug (test-first; wiring is the test-wirer agent's job).
 ---
 
 # Testing

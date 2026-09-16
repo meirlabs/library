@@ -1,6 +1,6 @@
 ---
 name: verify-frontend-change
-description: Verify a UI change end-to-end before declaring it done — drive the change in a headless Playwright browser (never the user's Chrome), screenshot the result. ONE verification pass per task, at the end — never after each intermediate edit. Scale it to the change: trivial tweaks (copy, spacing, a color) get one desktop look; the full loop (console, mobile, before/after) is for structural/layout or cross-page changes. Triggers on "verify the UI", "did that work", "check it in the browser", or before reporting a UI change complete.
+description: Verify a UI change end-to-end before declaring it done - drive it in a headless Playwright browser (never the user's Chrome), screenshot the result. One pass per task, scaled to the change - a desktop look for trivial tweaks, the full loop (console, mobile, before/after) for structural or cross-page changes. Triggers on "verify the UI", "did that work", "check it in the browser", or before reporting a UI change complete.
 ---
 
 # Verifying frontend changes

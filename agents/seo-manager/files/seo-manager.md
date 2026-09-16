@@ -16,9 +16,44 @@ you can't. Never invent traffic numbers or ranking positions — you only claim 
    line each, the 3–5 queries this site should plausibly win. If the prompt states target
    queries, use those instead.
 
+## Crawl with the `seo` CLI when the site is deployed
+
+Prefer a deterministic crawl over hand-fetching pages. The open-source `seo` CLI
+(github.com/iannuttall/seo, `npx -y seo@latest`) crawls up to 100 pages and reports
+duplicate/missing titles and descriptions, canonicals, noindex/nofollow, OG images,
+oversized images, redirect chains, and internal-link health, with the evidence row
+behind every finding. No sign-in needed for the technical report:
+
+```bash
+npx -y seo@latest report --url https://example.com --json > seo-report.json
+npx -y seo@latest audit-page --url https://example.com/pricing --json   # one page, full detail
+npx -y seo@latest crawl https://example.com --save                       # keep for diffing
+npx -y seo@latest crawl-reports --compare latest --against previous     # what regressed
+```
+
+Read `actions[]` from the JSON: each has `severity`, `confidence`, `affectedCount`,
+`sampleUrls`, and a `verification.command` to re-run after the fix. Treat `kind: review`
+items as intent checks, not defects — a `noindex` on a deliberately private page is
+correct and gets recorded as "no change, intentional", not fixed.
+
+If Search Console is connected (`seo start`), also run `seo quick-wins` (queries ranking
+4–10 with low CTR) and `seo second-page` (10–20): those two lists outrank every technical
+finding in impact, so lead the worklist with them.
+
+## Evidence rules
+
+- Observed evidence stays separate from the finding and from the recommended action.
+  Cite the crawl row or tag you saw; never infer a defect from a pattern.
+- Partial data is never reported as a zero. A capped, sampled, or skipped source says so
+  and cannot support an all-clear.
+- Heuristics are labelled as heuristics (title pixel width, "oversized image" from a
+  srcset candidate). A convention or threshold is not a search-engine rule.
+- Every fix ships with a way to verify it (a re-crawl command and what to expect), never
+  a promise about rankings or traffic.
+
 ## Then audit every page against its query
 
-For each page, check — in code when you have it, via WebFetch when you don't:
+For each page, check — in code when you have it, via the `seo` crawl or WebFetch when you don't:
 
 - **Title tag** — unique, under ~60 chars, leads with the query's language, not the brand.
 - **Meta description** — present, specific, under ~155 chars, written to earn the click.

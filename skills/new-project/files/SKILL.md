@@ -66,7 +66,11 @@ Two paths (both are supported — pick based on the user's preference; default t
 
 Run the **scaffolder** agent (`agents/scaffolder.md`): copy template, replace `__PROJECT_NAME__`,
 fix the `@meir-labs/ui-kit` path, set up `.npmrc`, prune disabled features, install deps. The
-scaffolder preserves the existing `PLAN.md` in the target.
+scaffolder preserves the existing `PLAN.md` in the target. With Supabase on, it also confirms the
+starter's Supabase agent skills came along (`.claude/skills/supabase`,
+`.claude/skills/supabase-postgres-best-practices`, `skills-lock.json`, `lib/storageCdn.ts`);
+with Supabase off it removes them. Every later stage that touches the schema loads
+`supabase-postgres-best-practices` first (rule in the starter's `CLAUDE.md`).
 
 **Register in the tracker:** ensure a row for this project exists in the meirlabs Supabase
 `projects` table (dashboard-originated projects already have a row at status `building`). Upsert via

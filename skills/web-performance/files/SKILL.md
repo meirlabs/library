@@ -1,6 +1,6 @@
 ---
 name: web-performance
-description: Make a meirlabs site as fast as possible — the delivery, perceived-speed, measurement, and CI decisions that keep Next.js App Router sites feeling instant. Distilled from Linear's "how is it so fast" teardown and calibrated to our stack (Next.js 15 + React 19 + ui-kit + Supabase + PostHog + Hugeicons on Vercel). Use when the user says "make it fast", "improve performance", "site is slow", "Core Web Vitals", "Lighthouse", "reduce bundle size", "optimize images/fonts", "speed up load", "perf audit", or when scaffolding/shipping a new project. Calibrated to design/foundation/performance.md.
+description: Make a meirlabs site as fast as possible - the delivery, perceived-speed, measurement, and CI decisions that keep Next.js App Router sites feeling instant, calibrated to our stack (Next.js 15 + React 19 + ui-kit + Supabase + PostHog + Hugeicons on Vercel). Use when the user says "make it fast", "improve performance", "site is slow", "Core Web Vitals", "Lighthouse", "reduce bundle size", "optimize images/fonts", "speed up load", "perf audit", or when scaffolding/shipping a new project.
 ---
 
 # Web Performance

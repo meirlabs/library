@@ -1,6 +1,6 @@
 ---
 name: write-article
-description: Write or edit an SEO/AEO article for the meirlabs web app (apps/web/content/articles). Encodes the frontmatter schema, the answer-engine structure, the "By the numbers" stats convention, and the editorial rules (concrete examples, tiered numbers, plain-language costs, no em dashes, article-specific CTAs). Use when the user says "write an article", "new blog post", "add an article", "edit the cost/timeline article", or wants copy for the /articles section.
+description: Write or edit an SEO/AEO article for the meirlabs web app (apps/web/content/articles) - the frontmatter schema, the answer-engine structure, the "By the numbers" stats convention, and the editorial rules. Use when the user says "write an article", "new blog post", "add an article", "edit the cost/timeline article", or wants copy for the /articles section.
 ---
 
 # Write Article Skill

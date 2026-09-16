@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-aeo",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "description": "The meirlabs AEO skill — make a site quotable by AI answer engines (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews). Encodes the per-page Findable/Quotable/Understandable/Trustworthy checklist with exact pass thresholds, the site-wide Content/Technical/Authority/Measurement pillars, and the code recipes to fix each: robots for AI crawlers, llms.txt, JSON-LD schema, FAQPage, canonical/OG, alt text, freshness signals, and AI-referral measurement. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

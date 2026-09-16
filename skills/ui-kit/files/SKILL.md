@@ -1,6 +1,6 @@
 ---
 name: ui-kit
-description: Reusable themeable (light & dark) component library at ~/Documents/business/meirlabs/product/ui-kit. Use when building UI with tables, pagination, status pills, tags, metric values, or design tokens. Triggers on: table component, data table, pagination, status pill, tag, badge, chip, metric value, design tokens, ui-kit, component library, theme tokens, ml-dt, ml-tag, ml-status-pill, ml-metric, ml-pg.
+description: Reusable themeable (light & dark) component library at ~/Documents/business/meirlabs/product/ui-kit. Use when building UI with tables, pagination, status pills, tags, metric values, or design tokens. Triggers on - table component, data table, pagination, status pill, tag, badge, chip, metric value, design tokens, ui-kit, component library, theme tokens, ml-dt, ml-tag, ml-status-pill, ml-metric, ml-pg.
 ---
 
 # @meir-labs/ui-kit

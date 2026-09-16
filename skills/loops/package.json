@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-loops",
-  "version": "0.1.0",
+  "version": "0.1.7",
   "description": "The meirlabs loops skill — design, pilot, and run standing agent loops: scheduled watcher-scribe agents that check a system against written thresholds between sessions, keep the state of record honest, and escalate to a human instead of acting. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

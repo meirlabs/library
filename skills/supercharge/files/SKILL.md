@@ -1,6 +1,6 @@
 ---
 name: supercharge
-description: Turn any task into a don't-stop-until-wowed quality loop — fan out builder subagents one per dimension, pair each with a separate brutally harsh critic that compares the result blind against a named best-in-class benchmark, and keep looping until every critic is genuinely wowed. Use when the user says "supercharge", "/supercharge", "make it utterly perfect", "AAA quality", "best in class", or "don't stop until it's the best".
+description: Turn any task into a don't-stop-until-wowed quality loop - builder subagents per dimension, each paired with a harsh critic that blind-compares the result against a named best-in-class benchmark, looping until every critic is wowed. Use when the user says "supercharge", "/supercharge", "make it utterly perfect", "AAA quality", "best in class", or "don't stop until it's the best".
 ---
 
 # SuperCharge

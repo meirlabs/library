@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-loop-engineering",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "The meirlabs loop-engineering skill — drive a big goal end-to-end as a multi-agent orchestrator. Fan out as many haiku/sonnet/opus subagents as the goal needs, pick the model tier per task, plan first and get the plan approved before any large fan-out, add adversarial-verify passes for anything that must be right, and never auto-send anything outward-facing. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

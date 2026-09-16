@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-new-project",
-  "version": "0.1.4",
+  "version": "0.1.11",
   "description": "The meirlabs new-project orchestration skill — discovery, an approval-gated PLAN.md, then the full scaffold/design/analytics/docs pipeline. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

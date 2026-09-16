@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-deploy",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "description": "The five-step ship checklist as a Claude Code skill — typecheck, build, env check, deploy to Vercel, report the URL. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

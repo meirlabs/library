@@ -1,6 +1,6 @@
 ---
 name: aeo
-description: Make a site quotable by AI answer engines (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews). Encodes the AEO framework — the per-page Findable/Quotable/Understandable/Trustworthy checklist with exact pass thresholds, the site-wide Content/Technical/Authority/Measurement pillars, and the code recipes to fix each (robots for AI crawlers, llms.txt, JSON-LD schema, FAQPage, canonical/OG, alt text, freshness signals, AI-referral measurement). Use when the user says "AEO", "answer engine optimization", "GEO", "will AI cite my site", "get cited by ChatGPT/Perplexity", "LLM visibility", "schema for AI", "llms.txt", "AI crawler access", or wants an AEO audit/plan. Pairs with the aeo-manager agent (the working pass) and complements seo-manager, write-article, and web-performance.
+description: Make a site quotable by AI answer engines (ChatGPT, Claude, Perplexity, Gemini). Encodes the AEO checklist, pass thresholds, and code fixes - robots for AI crawlers, llms.txt, JSON-LD/FAQPage schema, canonical/OG, alt text, freshness, AI-referral measurement. Use when the user says "AEO", "answer engine optimization", "GEO", "will AI cite my site", "LLM visibility", "schema for AI", "llms.txt", or wants an AEO audit/plan.
 ---
 
 # AEO — Answer Engine Optimization

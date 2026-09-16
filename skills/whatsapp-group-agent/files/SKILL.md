@@ -117,7 +117,7 @@ cache, never the live API directly (except a one-off `get` on a known id).
   high-precision and let ambiguous meetings fall to a low-confidence `other`
   bucket surfaced by `unclassified` for the daily sweep to review, rather
   than guessing.
-- **No webhooks; polling is the only trigger.** `updated_after` drives
+- **Webhooks exist since 2026-09** (note.generated/edited/access_granted, ids only; received at meirlabs.com, the VPS pulls the event log every minute, see ops/granola/WEBHOOKS.md). Polling stays as the safety net: `updated_after` drives
   incremental sync, `page_size` maxes at 30 with cursor pagination, rate
   limit is 25 req/5s burst / 5 req/s sustained. Never fetch transcripts in
   bulk — only for a note a query has already judged relevant.

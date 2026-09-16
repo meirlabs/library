@@ -28,6 +28,14 @@ Steps:
 4. Ensure `.npmrc` has the Hugeicons Pro registry line. If `HUGEICONS_TOKEN` isn't available,
    leave the placeholder and clearly flag that the user must add their license key.
 5. If Supabase/PostHog were disabled, remove the corresponding files/deps cleanly.
+   Supabase-off also means removing `.claude/skills/supabase`,
+   `.claude/skills/supabase-postgres-best-practices`, `skills-lock.json`,
+   `lib/storageCdn.ts` + `lib/storageCdn.test.ts`, and the `## Supabase` sections
+   of `CLAUDE.md` / `AGENTS.md`.
+5b. If Supabase is enabled, confirm the starter's agent tooling came along: both
+   `.claude/skills/supabase*/SKILL.md` files and `skills-lock.json` exist at the
+   target (`.claude/` must not be gitignored; if a project later ignores it, the
+   pattern is `.claude/*` + `!.claude/skills/`).
 6. Copy `.env.example` to `.env.local`.
 7. Install dependencies (prefer `pnpm`, fall back to `npm`). Report install errors verbatim.
 

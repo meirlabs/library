@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Audit a web app or repo for real, exploitable security issues and turn each into a ranked finding with a concrete implementation plan. Runs a threat model, a multi-lens static sweep, live-config checks (auth, RLS, headers, deps, endpoints), then adversarially verifies every finding before it ships so the report is false-positive-resistant. Use when the user says "security audit", "find security issues", "is this app secure", "pentest my code", "check my RLS", "audit before launch", or names a repo/app to harden.
+description: Audit a web app or repo for real, exploitable security issues and hand back ranked, verified findings with fix plans — threat model, multi-lens sweep, live-config checks, adversarial verification, false-positive-resistant. Use when the user says "security audit", "find security issues", "is this app secure", "pentest my code", "check my RLS", "audit before launch", or names a repo/app to harden.
 ---
 
 # Security Audit

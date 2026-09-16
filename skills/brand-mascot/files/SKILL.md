@@ -1,6 +1,6 @@
 ---
 name: brand-mascot
-description: Create a branded mascot for a product and keep it visually consistent across an entire ad or content campaign. Runs one of two arcs — invent a mascot from scratch (discovery, character brief, anchor kit) or wrap a consistency system around existing mascot art — then generates on-brand campaign images by conditioning every render on an actual reference PNG, composites real text over the art in HTML/Chromium, and renders each platform format natively. Use when the user says "create a mascot", "brand character", "design a mascot", "mascot kit", "keep the mascot consistent", "character consistency", "consistent character across images", "brand campaign images", "on-brand illustrations", or "make my mascot do X".
+description: Create a branded mascot for a product and keep it visually consistent across an ad or content campaign — invent one from scratch or wrap a consistency system around existing art, then generate on-brand campaign images conditioned on a reference PNG, composited per platform format. Use when the user wants a mascot created, kept consistent, or made to appear in new campaign art.
 ---
 
 # Brand Mascot — create a mascot and hold it consistent across a campaign

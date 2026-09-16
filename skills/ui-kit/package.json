@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-ui-kit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The usage skill for @meir-labs/ui-kit — when tables, pagination, status pills, tags, or metrics come up, reach for the kit instead of rebuilding. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

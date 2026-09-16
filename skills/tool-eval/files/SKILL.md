@@ -1,6 +1,6 @@
 ---
 name: tool-eval
-description: Pick the right tool/platform/vendor for a job with a multi-agent evaluation — parallel research with verified pricing, adversarial fact-checking against official docs, a judge panel scored on the buyer's real priorities, and a decision memo with switch triggers. Use when the user asks "what platform/tool/service should I use for X", "compare vendors for X", or wants a tooling decision that has to hold up long term.
+description: Pick the right tool/platform/vendor with a multi-agent evaluation - verified-pricing research, adversarial fact-checking against official docs, a judge panel scored on the buyer's priorities, and a decision memo with switch triggers. Use when the user asks "what platform/tool/service should I use for X", "compare vendors for X", or wants a tooling decision that has to hold up long term.
 ---
 
 # Tool Eval
