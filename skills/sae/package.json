@@ -1,7 +1,7 @@
 {
   "name": "@meir-labs/skill-sae",
-  "version": "0.1.0",
-  "description": "Status And Estimate — a three-line status protocol for coding agents. Ask where they're at, get minutes left, what's in flight, what's finished, and nothing else. npx installs it into .claude/skills.",
+  "version": "0.2.0",
+  "description": "Status And Estimate \u2014 a three-line status protocol for coding agents, written for a product owner. Ask where they're at, get minutes left, what's in flight, what's done, in plain English. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",
     "claude",
