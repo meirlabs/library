@@ -88,11 +88,12 @@ Numbered steps a builder can follow. Name files/functions. Include the test
 that should exist when it's done.
 
 ## Risk
-Level: Low / Medium / High — one line why.
+Level: Low / Medium / High — rate the planned work and say why.
 - What could break, and who would notice
 - Blast radius: one screen / one app / shared code / data / money / outbound messages
 - Reversible? How to roll back
 - What must be checked before shipping
+- Conditional escalation, only if needed: what finding or scope change raises the risk
 
 ## Done when
 Checkable acceptance criteria.
@@ -107,10 +108,27 @@ Who asked, where, when; original wording; links.
 Drop a section that genuinely doesn't apply (no "Cause" on a feature, no "Open
 questions" when there are none). Never drop **Risk**.
 
-**Risk level guide.** Low: isolated, easy to revert, no data touched. Medium:
-shared code or several screens, or behaviour users will notice. High: data
-migrations, auth/permissions, payments, anything that sends messages to real
-people, or anything hard to undo.
+**Rate the concrete work, not the topic.** Risk describes the proposed
+implementation or verification, not the act of writing this plan, the severity
+of a possible bug, or the worst fix an investigation might uncover. A ticket
+about permissions or payments is not automatically High risk. Keep priority
+(the impact of leaving the problem) separate from change risk.
+
+**Risk level guide.** Low: read-only investigation, tests using isolated
+synthetic data, or an isolated, easily reverted change with no material effect
+on live data. Medium: shared runtime changes or changes across several screens
+with a bounded, reversible impact. High: changes to authorization rules or
+money movement, consequential live-data migrations, sends to real people, or
+other effects that are difficult to undo. Judge actual side effects: a test
+that changes production records or sends real messages is not Low merely
+because it is called a test.
+
+For verification-first work, rate the verification being proposed. If a finding
+would require a riskier fix, state that separately with the concrete trigger
+and re-scope/re-rate before implementing it. For example: "Low for ownership
+regression tests with synthetic accounts; High if a failure requires changing
+authorization checks." Do not inflate the main rating with a hypothetical
+repair, or describe an unverified breach as a confirmed defect.
 
 ### 5. Set the fields
 

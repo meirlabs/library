@@ -17,6 +17,8 @@ The ticket ends up with this description:
 
 It also sets the effort estimate on the team's own scale and a priority, fixes a vague title, and re-reads the ticket to check the changes saved. Status and assignee are left alone. It comments only when it changed a field or has a question for the owner.
 
+Risk reflects the planned work, not its topic. Isolated verification can be Low risk even for permissions or payments; any riskier repair is called out separately with the finding that would trigger it.
+
 Works with Linear (through an MCP server or the API) and with GitHub issues through `gh`.
 
 ## Install
