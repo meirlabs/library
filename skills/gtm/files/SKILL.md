@@ -127,9 +127,9 @@ specific, no superlatives. "Cut reporting from 4 hours to 15 minutes" beats
 
 ## The portfolio
 
-The studio is wide, not deep — eleven products across B2C, vertical B2B, dev
-tools, and Hebrew-local, most at first-hundred-users stage. Portfolio rules
-exist so the width doesn't dilute the hours.
+The studio runs wide, not deep. Products span B2C, vertical B2B, dev tools,
+and Hebrew-local, most at first-hundred-users stage. Portfolio rules exist so
+the width doesn't dilute the hours.
 
 | Rule | Meaning |
 |---|---|
@@ -151,23 +151,26 @@ on four axes and multiply — multiply, not sum, so a 1 anywhere sinks it:
 | Excitement runway | Will the founder still want this in six months? |
 
 The score is re-run at every cycle boundary — when a push hits its kill
-criteria or its double-down. The winner is recorded in the GTM workspace, and
-this doc records the current answer: **Miror**. The hackathon-finalist
-credential is perishable, the buyers are builders, and the channel is the
-founder's home platform. Monday morning has an answer.
+criteria or its double-down. The winner is recorded in the internal GTM
+workspace, not here. A high scorer tends to share a shape: a perishable
+credential worth spending now, buyers who are easy to name and reach, and a
+primary channel the founder already lives in. Monday morning gets an answer
+because the rubric, not a mood, produced it.
 
-Rough channel-fit map, from each product's ICP:
+The channel each product earns is read off its ICP, not chosen by taste. A few
+patterns recur across the roster:
 
-| Product | ICP | Primary channel |
-|---|---|---|
-| Edena | VCs/analysts triaging decks | Founder-led on LinkedIn + outbound to funds |
-| Miror | Devs doing AI QA | X + GitHub + Show HN; the hackathon-finalist credential leads |
-| RedMaester, LetSync | Agent-workflow adopters | X build-in-public — this audience **is** builders |
-| NuNotes, SoClever | Prosumers, self-learners | SEO/AEO + product-led sharing |
-| Elianna | Health-conscious consumers | Short-form content + AEO; paid only after organic proof |
-| Sanegor, Balitut | Hebrew-speaking Israel market | Hebrew SEO/AEO (near-zero competition), local communities, WhatsApp groups — not X |
-| DoorData | Property managers | Outbound. Vertical B2B buyers are reached, not found |
-| GOAT Arena | Fantasy-sports gamers | Product-led virality + community; largest proven user base — rebuild the loop that got it |
+- **B2B tools whose buyers don't read X** (analysts, property managers, firms
+  triaging documents) get founder-led LinkedIn plus outbound to the funds or
+  operators who hold the budget. Vertical buyers are reached, not found.
+- **Dev and agent-workflow tools** ride X build-in-public, GitHub, and Show HN,
+  because that audience *is* builders and a live credential leads.
+- **Prosumer and self-learner tools** compound through SEO/AEO and product-led
+  sharing.
+- **Consumer health and lifestyle products** start with short-form content and
+  AEO; paid comes only after organic proof.
+- **Hebrew-market products** run Hebrew SEO/AEO, local communities, and
+  WhatsApp groups, not X, where their buyers aren't.
 
 The Hebrew products get a note of their own: the Hebrew answer-engine corpus
 is thin, which makes AEO there disproportionately cheap. Being the answer in
@@ -219,8 +222,8 @@ multiples of cold outreach — vendor-reported numbers, directional rather than
 audited, but the direction is unambiguous. This is a system, not a mood.
 
 **Platform:** X first — the studio's products skew dev/indie/prosumer, and
-that audience lives there. LinkedIn for the B2B verticals (Edena, DoorData),
-where the buyer does not read X.
+that audience lives there. LinkedIn for the B2B verticals, where the buyer
+does not read X.
 
 **The topic ladder.** 3–5 topics, held for 90 days, nothing published outside
 them:
@@ -260,9 +263,9 @@ series. A viral post is the most valuable signal you will ever get. Don't
 post the hit and move on.
 
 **Build-in-public, with eyes open.** It works when the buyers are builders —
-true for Miror, RedMaester, LetSync. For Elianna or DoorData it's
-entertainment, not GTM; those ICPs get reached in their own rooms. Build in
-public is one rung on the ladder, not the religion.
+true for the studio's dev and agent-workflow tools. For a consumer health app
+or a vertical B2B tool it's entertainment, not GTM; those ICPs get reached in
+their own rooms. Build in public is one rung on the ladder, not the religion.
 
 **LinkedIn, where used — reach and the close.** The mechanics get reach:
 personal profile only; PDF carousels for dwell time; hooks that state the
@@ -274,7 +277,7 @@ architecture on top:
   reads — attention), authority (frameworks, breakdowns — "this person knows
   the space"), conversion (case studies, lead magnets, CTAs — "I should talk
   to them"). Most accounts post only the first layer and wonder why no calls
-  get booked. Edena is the doc's LinkedIn-primary product; it runs all three.
+  get booked. The studio's LinkedIn-primary product runs all three.
 - **The four-step DM sequence** when someone bites: deliver the promised
   thing immediately, no pitch → one genuine question ("what made this
   interesting to you?") → qualify through the conversation → only then offer
@@ -292,12 +295,12 @@ architecture on top:
   right after a first win — never at signup. Two-sided incentive, both sides
   paid in credits (the pricing unit already exists), sized against what a
   paid acquisition would cost, not against gut feel.
-- **GOAT Arena is the virality product and gets the full loop.** Match
-  results render as shareable cards; the referral pays both sides in in-game
-  currency at the moment of a win. And before building anything new: pull
-  the acquisition source of the existing 10K players from PostHog. Whatever
-  brought them is the proven channel — rebuild that loop deliberately
-  instead of studying it admiringly.
+- **The virality product gets the full loop.** For a consumer game with an
+  existing player base, match results render as shareable cards; the referral
+  pays both sides in in-game currency at the moment of a win. And before
+  building anything new: pull the acquisition source of the existing players
+  from PostHog. Whatever brought them is the proven channel — rebuild that loop
+  deliberately instead of studying it admiringly.
 
 ## Community
 
@@ -315,10 +318,10 @@ otherwise it's zero and the hours go to outbound. When it runs:
   Links, corporate tone, and vague advice are the three ways to die there —
   naive Reddit audience-building ends in bans about 80% of the time;
   answering specific questions is what survives.
-- **Hebrew products: WhatsApp groups are the subreddits of Israel.**
-  Balitut's room is the neighborhood group that already trades produce;
-  Sanegor's is the freelancer and SMB groups. Same rule everywhere: useful
-  before promotional.
+- **Hebrew products: WhatsApp groups are the subreddits of Israel.** A local
+  consumer product's room is the neighborhood group that already trades what it
+  serves; a Hebrew B2B tool's is the freelancer and SMB groups. Same rule
+  everywhere: useful before promotional.
 
 ## The launch motion
 
@@ -500,8 +503,8 @@ a week it costs to maintain.
 
 ## Outbound
 
-For the vertical B2B products only — DoorData, Edena, Sanegor's SMB side.
-Consumer products don't get cold email; they get content.
+For the vertical B2B products only — the property, analyst, and Hebrew SMB
+tools. Consumer products don't get cold email; they get content.
 
 **The list is the strategy. The copy is secondary.** ColdIQ cut 40% of their
 addressable market before sending a single email and reply rates went **up**.
@@ -573,7 +576,7 @@ with better economics.
 new value shipped. Grandfather existing users or give a lock-in window.
 Never naive A/B tests on visible prices — new-cohort tests only.
 
-For anything sold as a service (Sanegor-style vertical work, agent setups):
+For anything sold as a service (vertical done-for-you work, agent setups):
 price like a service, report like a product — setup fee plus retainer tied
 to an outcome metric, live dashboard from day one. Sell the work, not the
 tool; the seller of outcomes gets margin expansion every time the models
@@ -733,7 +736,7 @@ never all three.
 
 Monday morning, concretely: open PostHog, open the GTM workspace, read what
 the agents queued overnight, pick the one goal, say go. Which product? The
-one the push rubric named — currently Miror.
+one the push rubric named — recorded in the internal workspace, not here.
 
 ## What we don't do
 

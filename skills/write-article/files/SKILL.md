@@ -206,10 +206,8 @@ that is not about cost.
 ## The CTA / promotions (promo part is cost-specific)
 
 - Every article auto-appends a **shared** book-a-plan CTA (`ctaTitle`/`ctaBody`/`ctaButton` in `ArticleView.tsx`, per locale). Editing that changes it on **every** article. Do not put article-specific copy there.
-- An **article-specific** offer or promo goes in the **body** of that one article, as a final Q&A section that hands off into the CTA below it. Real example (the cost article's launch discount):
-  > ## Is there a discount right now?
-  > Yes. I'm just launching, so I'm taking on a small group of early clients at about half the numbers above. … If you want one of those spots, the free AI plan below is where it starts.
-- When a promo restates numbers ("about half the numbers above"), give the reader at least one concrete resulting figure ("closer to $1,500 to $2,500") and make sure it's arithmetically right against the tiers.
+- An **article-specific** offer or promo goes in the **body** of that one article, as a final Q&A section that hands off into the CTA below it.
+- When a promo restates numbers, give the reader at least one concrete resulting figure and make sure it's arithmetically right against the tiers.
 
 ## Voice
 
