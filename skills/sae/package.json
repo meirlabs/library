@@ -1,7 +1,7 @@
 {
   "name": "@meir-labs/skill-sae",
-  "version": "0.3.1",
-  "description": "Status And Estimate \u2014 a four-line progress update for a product owner, followed by continued work on the active task. npx installs it into .claude/skills.",
+  "version": "0.3.0",
+  "description": "Status And Estimate \u2014 a four-line status protocol for coding agents, written for a product owner: estimate, remaining, finished, and notes only when something is blocked. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",
     "claude",

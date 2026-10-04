@@ -1,0 +1,31 @@
+{
+  "name": "@meir-labs/skill-prep",
+  "version": "0.1.0",
+  "description": "Prep a ticket: the agent reads it, works out the fix, and writes the plan, risk, effort and priority back onto the ticket without building anything. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "codex",
+    "skills",
+    "skill",
+    "linear",
+    "tickets",
+    "planning",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/prep",
+  "type": "module",
+  "bin": {
+    "skill-prep": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

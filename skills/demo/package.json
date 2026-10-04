@@ -1,0 +1,30 @@
+{
+  "name": "@meir-labs/skill-demo",
+  "version": "0.1.1",
+  "description": "Build one clickable demo page with 10 different options side by side, so you pick by number. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "codex",
+    "skills",
+    "skill",
+    "demo",
+    "variants",
+    "design",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "type": "module",
+  "bin": {
+    "skill-demo": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

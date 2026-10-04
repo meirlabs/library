@@ -1,23 +1,11 @@
 ---
 name: sae
-description: Status And Estimate — give a brief plain-English progress update, then continue any active task. Use when the user types /sae, or says "status", "sitrep", "where are you", "how long left", "update me", "what's left". Written for a product owner, not an engineer. Portable across Claude Code, Codex, and any agent that reads skills.
+description: Status And Estimate — answer "where are you at?" in four plain-English lines, nothing else. Use when the user types /sae, or says "status", "sitrep", "where are you", "how long left", "update me", "what's left". Written for a product owner, not an engineer. Portable across Claude Code, Codex, and any agent that reads skills.
 ---
 
 # sae — status and estimate
 
-Report state to a **product owner**, not a developer. Keep the update brief, without explanation or recap.
-
-## Progress checkpoint, not a pause
-
-When a task is active, send the status block as an intermediate progress message
-(Codex: `commentary`), then immediately continue the next authorized task step in
-the same turn. Keep running tools and subagents running. The four-line format
-applies to the status message, not the rest of the work. Do not end the turn,
-wait for a "continue", or treat the status request as replacing the active task.
-
-Use a final reply only when the task is complete, nothing is active, the user
-explicitly asks to stop/pause, or a genuine blocker or required approval prevents
-further progress. SAE changes neither the task's scope nor its approval boundaries.
+Report state to a **product owner**, not a developer. No new work, no explaining, no recap.
 
 ## Output — exactly this, nothing around it
 

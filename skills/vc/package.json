@@ -1,0 +1,30 @@
+{
+  "name": "@meir-labs/skill-vc",
+  "version": "0.1.0",
+  "description": "Explain what the agent just did in two short lines, Problem and Fix, that a non-technical VC can follow. npx installs it into .claude/skills.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "codex",
+    "skills",
+    "skill",
+    "summary",
+    "investor",
+    "adhd",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "type": "module",
+  "bin": {
+    "skill-vc": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

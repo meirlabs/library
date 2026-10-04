@@ -1,6 +1,6 @@
 # @meir-labs/skill-sae
 
-Status And Estimate — a four-line status protocol for coding agents, written for the person who owns the product rather than the person who wrote the code. Type `/sae` and get minutes left, what's left, and what's done. During an active task, the agent sends the update as a progress message and continues working in the same turn.
+Status And Estimate — a four-line status protocol for coding agents, written for the person who owns the product rather than the person who wrote the code. Type `/sae` and get minutes left, what's left, what's done, and nothing else.
 
 ```
 - estimate: 20-30 mins left
