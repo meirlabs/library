@@ -1,6 +1,6 @@
 {
   "name": "@meir-labs/skill-prep",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Prep a ticket: the agent reads it, works out the fix, and writes the plan, risk, effort and priority back onto the ticket without building anything. npx installs it into .claude/skills.",
   "keywords": [
     "claude-code",

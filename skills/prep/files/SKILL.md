@@ -135,7 +135,10 @@ repair, or describe an unverified breach as a confirmed defect.
 - **Title** — fix it if it's vague or wrong: 2–6 plain words, verb-led, no codes.
 - **Effort** — the tracker's estimate field, on the team's own scale (read the
   team settings; don't assume). Base it on the proposed fix, including tests
-  and verification.
+  and verification. Use only that relative effort scale; do not translate it
+  into hours, days, weeks or a completion date. Do not add duration estimates
+  to the ticket description, comments or user reply. Explain the scope and
+  uncertainty behind the effort instead.
 - **Priority** — Urgent / High / Medium / Low from impact (who's affected, how
   badly, how soon). Never leave "No priority". If you change an existing
   priority, say why in the comment.
