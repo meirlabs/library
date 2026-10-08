@@ -1,0 +1,33 @@
+{
+  "name": "@meir-labs/skill-qa-army",
+  "version": "0.1.1",
+  "description": "A full QA regression run by an army of agents: the strongest model writes the test plan, automated, browser, and code-reading testers run rounds, and new verified issues become subtickets under one master regression ticket; reopened tickets are detached from their parent, each with a plain-English TL;DR. Finds issues, never fixes them. Works in Claude Code and Codex.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "codex",
+    "skills",
+    "skill",
+    "qa",
+    "regression",
+    "testing",
+    "playwright",
+    "linear",
+    "meirlabs"
+  ],
+  "license": "MIT",
+  "author": "Meir Rosenschein",
+  "homepage": "https://meirlabs.com/skills/qa-army",
+  "type": "module",
+  "bin": {
+    "skill-qa-army": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "files",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
